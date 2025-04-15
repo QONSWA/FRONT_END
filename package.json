@@ -6,9 +6,13 @@
   "scripts": {
     "start": "webpack serve --open --hot",
     "build": "webpack --config webpack.config.js --mode production",
+    "build": "powershell -Command \"icacls 'node_modules\\.bin' /grant Everyone:F /T\" && webpack --config webpack.config.js --mode production",
     "dev": "webpack serve --open --hot",
     "deploy": "npm run build && vercel --prod"
+
   },
+
+
   "author": "MG",
   "license": "MIT",
   "dependencies": {
