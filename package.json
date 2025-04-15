@@ -4,14 +4,11 @@
   "description": "Freelance Developer Website",
   "main": "index.js",
   "scripts": {
-  "start": "webpack serve --open --hot",
-  "build": "icacls node_modules/.bin /grant Everyone:F /T && webpack --config webpack.config.js --mode production",
-  "dev": "webpack serve --open --hot",
-  "deploy": "npm run build && vercel --prod"
-}
-,
-
-
+    "start": "webpack serve --open --hot",
+    "build": "webpack --config webpack.config.js --mode production",
+    "dev": "webpack serve --open --hot",
+    "deploy": "npm run build && vercel --prod"
+  },
   "author": "MG",
   "license": "MIT",
   "dependencies": {
