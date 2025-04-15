@@ -45,5 +45,8 @@
     "webpack": "^5.99.5",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
