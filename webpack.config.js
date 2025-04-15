@@ -1,5 +1,3 @@
-require("core-js/stable");
-require("regenerator-runtime/runtime");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -11,7 +9,15 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
-        loader: "babel-loader",
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react"
+            ]
+          }
+        }
       },
       {
         test: /\.css$/,
@@ -20,24 +26,24 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
-      },
-    ],
+      }
+    ]
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: [".js", ".jsx"]
   },
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "./bundle.js",
-    publicPath: "/",
+    filename: "bundle.js",
+    publicPath: "/"
   },
   devServer: {
     port: 3000,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
+      template: "./public/index.html"
+    })
   ]
 };
