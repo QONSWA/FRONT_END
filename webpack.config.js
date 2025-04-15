@@ -1,4 +1,5 @@
-require("babel-polyfill");
+require("core-js/stable");
+require("regenerator-runtime/runtime");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -26,7 +27,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"]
   },
   output: {
-    path: path.resolve(__dirname, "/build"),
+    path: path.resolve(__dirname, "build"),
     filename: "./bundle.js",
     publicPath: "/",
   },
